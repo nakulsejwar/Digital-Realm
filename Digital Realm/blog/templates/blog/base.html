@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
+<content>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a href="{% url 'blog-home' %}">
+          <img style="max-height: 70;" src="/media/logo.png" alt=""></a>
+          <buttwon class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </buttwon>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+              
+            </div>
+            
+            <div class="navbar-nav">
+              <a href="{% url 'blog-home' %}" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Home
+            </a>
+              
+                <a href="{% url 'blog-new' %}" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Create Post
+            </a>
+            <a href="{% url 'contactus' %}" id="auth-links">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Contact Us
+          </a>
+                <a href="{% url 'profile' %}" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Profile
+            </a>
+                <a href="{% url 'logout' %}" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Logout
+            </a>
+                {% else %}
+                <a href="{% url 'blog-home' %}" id="auth-links">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Home
+              </a>
+                <a href="{% url 'contactus' %}" id="auth-links">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Contact Us
+              </a>
+              
+              <a href="{% url 'login' %}" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Login
+            </a>
+            <a href="{% url 'register' %}" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Register
+            </a>
+            
+            <!-- <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Neon button
+            </a> -->
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+          <div class="col-md-8">
+              {%  if messages%}
+                {% for message in messages %}
+                    <div class="alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+              {% endif %}
+          </div>
+        <div class="col-md-8">
+           {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <!-- <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                <li class="list-group-item list-group-item-light">Announcements</li>
+                <li class="list-group-item list-group-item-light">Calendars</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+            </p> -->
+            <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 300px;" style="padding-top: 120px;">
+                <a id="list-group" style="text-decoration: none;" href="" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom"> 
+                  <span class="fs-5 fw-semibold" id="gist-btn">Famous Categories</span>
+                </a>
+                <div class="list-group list-group-flush border-bottom scrollarea">
+                  <a href="http://127.0.0.1:8000/category/fashion/" class="list-group-item list-group-item-action  lh-tight" aria-current="true">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Fashion
+                    </strong>
+                      
+                    </div>
+                    
+                  </a>
+
+
+                  <a href="http://127.0.0.1:8000/category/fashion/" class="list-group-item list-group-item-action py-3 lh-tight">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Coding</strong>
+                      
+                    </div>
+                    
+                  </a>
+
+
+                  <a href="http://127.0.0.1:8000/category/techbustersoo/" class="list-group-item list-group-item-action py-3 lh-tight">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Techbusters</strong>
+                      
+                    </div>
+                  </a>
+
+                  <a href="http://127.0.0.1:8000/category/lifestyle/" class="list-group-item list-group-item-action py-3 lh-tight">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Lifestyle</strong>
+                      
+                    </div>
+                  </a>
+
+
+
+                  <a href="http://127.0.0.1:8000/category/education/" class="list-group-item list-group-item-action py-3 lh-tight">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Education</strong>
+                      
+                    </div>
+                  </a>
+
+                  <a href="http://127.0.0.1:8000/category/business/" class="list-group-item list-group-item-action py-3 lh-tight">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Business</strong>
+                      
+                    </div>
+                  </a>
+
+
+                  <a href="http://127.0.0.1:8000/category/travel/" class="list-group-item list-group-item-action py-3 lh-tight">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Travel</strong>
+                      
+                    </div>
+                  </a>
+
+
+
+                  <a href="http://127.0.0.1:8000/category/hobbies/" class="list-group-item list-group-item-action py-3 lh-tight">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                      <strong class="col-10 mb-1">Hobbies</strong>
+                      
+                    </div>
+                  </a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+
+        <footer class="" >
+          <ul class="nav justify-content-center border-bottom"  style="margin-top: 60px;">
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+            
+            <li class="nav-item"><a href="http://127.0.0.1:8000/admin/" class="nav-link px-2 text-muted">Admin</a></li>
+            
+            <li class="nav-item"><a href="{% url 'blog-about' %}" class="nav-link px-2 text-muted">About</a></li>
+          </ul>
+          <p class="text-center text-muted" style="margin-top: 10px;">&copy; Digital Realm @2023-24</p>
+          <p align="center" style="margin-top: -30px;"><a href="#" id="auth-links"><i class="fa fa-dribbble"></i></a>
+          <a href="#" id="auth-links"><i class="fa fa-twitter"></i></a>
+          <a href="#" id="auth-links"><i class="fa fa-linkedin"></i></a>
+          <a href="#" id="auth-links"><i class="fa fa-facebook"></i></a></p>
+        </footer>
+
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</content>
+</html>

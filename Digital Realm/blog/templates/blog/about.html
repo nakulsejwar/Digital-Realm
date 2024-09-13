@@ -1,0 +1,211 @@
+<style>@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(115deg, #ffffff 10%, #ececec 90%);
+  }
+  
+  .container .text{
+    text-align: center;
+    font-size: 41px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .container form{
+    padding: 30px 0 0 0;
+  }
+  .container form .form-row{
+    display: flex;
+    margin: 32px 0;
+  }
+  form .form-row .input-data{
+    width: 100%;
+    height: 40px;
+    margin: 0 20px;
+    position: relative;
+  }
+  form .form-row .textarea{
+    height: 70px;
+  }
+  .input-data input,
+  .textarea textarea{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0,0,0, 0.12);
+  }
+  .input-data input:focus ~ label, .textarea textarea:focus ~ label,
+  .input-data input:valid ~ label, .textarea textarea:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #3498db;
+  }
+  .textarea textarea{
+    resize: none;
+    padding-top: 10px;
+  }
+  .input-data label{
+    position: absolute;
+    pointer-events: none;
+    bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  .textarea label{
+    width: 100%;
+    bottom: 40px;
+    background: #fff;
+  }
+  .input-data .underline{
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+  }
+  .input-data .underline:before{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: #3498db;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  .input-data input:focus ~ .underline:before,
+  .input-data input:valid ~ .underline:before,
+  .textarea textarea:focus ~ .underline:before,
+  .textarea textarea:valid ~ .underline:before{
+    transform: scale(1);
+  }
+  .submit-btn .input-data{
+    overflow: hidden;
+    height: 45px!important;
+    width: 25%!important;
+  }
+  .submit-btn .input-data .inner{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    transition: all 0.4s;
+  }
+  .submit-btn .input-data:hover .inner{
+    left: 0;
+  }
+  .submit-btn .input-data input{
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 700px) {
+    .container .text{
+      font-size: 30px;
+    }
+    .container form{
+      padding: 10px 0 0 0;
+    }
+    .container form .form-row{
+      display: block;
+    }
+    form .form-row .input-data{
+      margin: 35px 0!important;
+    }
+    .submit-btn .input-data{
+      width: 40%!important;
+    }
+  }
+</style>
+
+{% extends 'blog/base.html' %}
+{% block content %}
+  <div class="heading-page header-text">
+      <section class="page-heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content"><br>
+                <h4>About Us: </h4>
+                <h2>Digital Realm</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Banner Ends Here -->
+
+
+    <section class="about-us">
+      <div class="container">
+          
+        <div class="row">
+          <div class="col-lg-12">
+            <img src="assets/images/about-us.jpg" alt="">
+            <p>Digital Realm is your one-stop destination for the latest tech news, reviews, how-to guides, and insightful commentary. We're passionate about exploring the ever-evolving world of technology and sharing our knowledge with you.</p>        </div>
+        </div>
+        
+        <div class="row">
+          <h3>Our Mission:</h3>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+          <h4>Inform:</h4>
+              <p>To keep you updated on the most recent tech trends, breakthroughs, and industry developments.</p>
+          </div>
+          <div class="col-lg-4 col-md-6">
+          <h4>Educate:</h4>
+              <p>To provide clear and concise explanations of complex tech concepts, making them accessible to everyone.</p>
+          </div>
+          <div class="col-lg-4">
+          <h4>Inspire:</h4>
+              <p>To spark your curiosity and creativity, encouraging you to embrace technology and its potential.</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <h3>Join the Community:</h3>
+            <p>We believe in fostering a vibrant community of tech-savvy individuals. Feel free to share your thoughts, ask questions, and engage in discussions with other readers. Your contributions help make Digital Realm a more dynamic and informative platform.</p>        </div>
+        </div>
+
+        <div class="row"></div>
+          <div class="col-lg-12">
+            <h4><strong>Thank you for being a part of the Digital Realm community!</strong></h4></div>
+        </div>
+        
+        
+        
+        
+        
+        
+      </div>
+    </section>
+
+{% endblock content %}
